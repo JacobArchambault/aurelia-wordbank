@@ -22,4 +22,4 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: jacobarchambault/wordbank:latest
+        tags: jacobarchambault/wordbank:$(date +'%Y-%m-%dT%H:%M:%S')
