@@ -18,8 +18,11 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Get current date for docker versioning
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H-%M-%S')"          
     - name: Build and push
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: jacobarchambault/wordbank:$(date +'%Y-%m-%dT%H-%M-%S')
+        tags: jacobarchambault/wordbank:${{ steps.date.outputs.date }}
