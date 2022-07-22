@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordbank-deployment
+  labels: 
+    app: wordbank
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: wordbank
+  template: 
+    metadata: 
+      labels: 
+        app: wordbank
+    spec: 
+      containers: 
+      - name: aurelia-server
+        image: jacobarchambault/wordbank:latest
+        ports: 
+        - containerPort: 80
+        
