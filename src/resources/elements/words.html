@@ -1,8 +1,12 @@
 <template>
+  <form submit.trigger="addOne()">
+    <input type="text" value.bind="newWord" />
+    <button type="submit" disabled.bind="!newWord">Add new</button>
+  </form>
   <table>
     <tbody>
       <tr repeat.for="word of words">
-        <td >${word}</td>
+        <td>${word}</td>
         <td><button click.trigger="Delete(word)">Delete</button></td>
       </tr>
     </tbody>
