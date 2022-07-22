@@ -25,6 +25,4 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: 
-        - jacobarchambault/wordbank:latest
-        - jacobarchambault/wordbank:${{ steps.date.outputs.date }}
+        tags: jacobarchambault/wordbank:latest,jacobarchambault/wordbank:${{ steps.date.outputs.now }}
